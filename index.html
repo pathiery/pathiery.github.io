@@ -24,6 +24,12 @@
 <body id="search" class="CoveoSearchInterface" data-enable-history="true">
   <div class="CoveoFolding"></div>
   <div class="CoveoAnalytics"></div>
+  <div class="coveo-tab-section">
+    <a class="CoveoTab" data-id="All" data-caption="All Content"></a>
+    <div class="CoveoTab" data-id="Pokemon" data-caption="Pokemon" data-expression="@source==&quot;Pokemon Push&quot;"></div>
+    <div class="CoveoTab" data-id="Digimon" data-caption="Digimon" data-expression="@source==&quot;Digimon Push&quot;">
+    </div>
+  </div>
   <div class="title-div">
     <h1 class="title">Pokemon</h1>
   </div>
@@ -32,31 +38,33 @@
   </div>
   <div class="coveo-main-section">
     <div class="coveo-facet-column">
-      <!-- <div class="CoveoDynamicFacet" data-title="Type" data-field="@type" data-tab="All" data-id="type"
-        data-number-of-values=""></div> -->
+      <div class="CoveoFacet facet" data-title="Monster Origin" data-field="@source"></div>
       <div class="CoveoFacet facet" data-title="Type" data-field="@type"></div>
-      <div class="CoveoSimpleFilter" data-title="Generation" data-field="@generation" data-maximum-number-of-values="8">
+      <div class="CoveoFacet facet" data-title="Generation" data-field="@generation" data-maximum-number-of-values="8" data-collapsed-by-default="true" data-depends-on="@source">
       </div>
       <div class="CoveoFacet facet" data-title="Abilities" data-field="@abilities"
         data-depends-on="@type"></div>
-      <div class="CoveoFacet facet" data-title="Egg Group" data-field="@egg_groups"
+      <div class="CoveoFacet facet" data-title="Egg Group" data-field="@egg_groups" data-depends-on="@source"
         data-collapsed-by-default="true"></div>
       <div class="CoveoFacetSlider facet" data-title="National Number" data-field="@national_number"
-        data-range-slider="true"></div>
+        data-range-slider="true" data-depends-on="@source"></div>
       <div class="CoveoFacetSlider facet" data-title="Catch Rate (%)" data-field="@catch_rate_percentage_full_hp"
-        data-range-slider="true" data-graph-steps="25"></div>
+        data-range-slider="true" data-graph-steps="25" data-depends-on="@source"></div>
       <div class="CoveoFacetSlider facet" data-title="Male Percentage" data-field="@gender_percentage_male"
-        data-range-slider="true" data-graph-steps="25"></div>
+        data-range-slider="true" data-graph-steps="25" data-depends-on="@source"></div>
       <div class="CoveoFacetSlider facet" data-title="Female Percentage" data-field="@gender_percentage_female"
-        data-range-slider="true" data-graph-steps="25"></div>
-      <div class="CoveoFacetSlider facet" data-title="Height" data-field="@height_metric" data-range-slider="true">
+        data-range-slider="true" data-graph-steps="25" data-depends-on="@source"></div>
+      <div class="CoveoFacetSlider facet" data-title="Height" data-field="@height_metric" data-range-slider="true" data-depends-on="@source">
       </div>
       <div class="CoveoFacetSlider facet" data-title="Weight" data-field="@weight_metric" data-range-slider="true"
-        data-graph-steps="25"></div>
-      <div class="CoveoFacetSlider facet" data-title="Egg Cycles" data-field="@egg_cycles" data-range-slider="true"
-        data-graph-steps="25"></div>
+        data-graph-steps="25" data-depends-on="@source"></div>
+      <div class="CoveoFacetSlider facet" data-title="Egg Cycles" data-field="@egg_cycles" data-range-slider="true" data-graph-steps="25" data-depends-on="@source"></div>
       <div class="CoveoFacetSlider facet" data-title="Base Friendship" data-field="@base_friendship"
-        data-range-slider="true" data-graph-steps="25"></div>
+        data-range-slider="true" data-graph-steps="25" data-depends-on="@source"></div>
+      <div class="CoveoFacetSlider facet" data-title="Digimon Number" data-field="@digimon_number" data-range-slider="true" data-depends-on="@source"></div>
+      <div class="CoveoFacet facet" data-title="Attribute" data-field="@attribute" data-range-slider="true" data-graph-steps="25" data-depends-on="@source"></div>
+      <div class="CoveoFacetSlider facet" data-title="Memory" data-field="@memory" data-range-slider="true" data-graph-steps="25" data-depends-on="@source"></div>
+      <div class="CoveoFacetSlider facet" data-title="Equip Slots" data-field="@equip_slots" data-range-slider="true" data-depends-on="@source"></div>
     </div>
     <div class="coveo-results-column">
       <div class="CoveoShareQuery"></div>
@@ -89,6 +97,7 @@
           <div class="coveo-result-frame">
             <div class="coveo-result-cell" style="vertical-align:top;text-align:center;width:32px;">
               <span class="CoveoFieldValue" data-field="@pokemon_image" data-helper="image" data-helper-options-height="100" data-helper-options-width="" data-helper-options-length-limit="" data-html-value="true" data-helper-options-alt="image"></span>
+              <span class="CoveoFieldValue" data-field="@digimon_image" data-helper="image" data-helper-options-height="100" data-helper-options-width="" data-helper-options-length-limit="" data-html-value="true" data-helper-options-alt="image"></span>
             </div>
             <div class="coveo-result-cell" style="vertical-align: top;padding-left: 16px;">
               <div class="coveo-result-row" style="margin-top:0;">
@@ -96,9 +105,8 @@
                   <span class="CoveoFieldValue" data-field="@name"></span>
                 </div>
                 <div class="coveo-result-cell">
-                  <span class="CoveoText" data-value="#"></span>
-                  <span class="CoveoFieldValue" data-field="@national_number"></span>
-                  <div class="CoveoQuickView"></div>
+                  <span class="CoveoFieldValue" data-field="@national_number">#</span>
+                  <span class="CoveoFieldValue" data-field="@digimon_number">#</span>
                 </div>
               </div>
               <div class="coveo-result-row" style="margin-top:10px;">
@@ -108,17 +116,17 @@
               </div>
               <div class="coveo-result-row" style="margin-top:10px;">
                 <div class="coveo-result-cell">
-                  <span class="CoveoText" data-value="Type :"></span>
-                  <span class="CoveoFieldValue" data-field="@type" data-split-values="true"></span>
+                  <span class="CoveoFieldValue" data-field="@type" data-split-values="true">Type: </span>
                 </div>
                 <div class="coveo-result-cell">
-                  <span class="CoveoText" data-value="Abilities :" data-style="bold"></span>
-                  <span class="CoveoFieldValue" data-field="@abilities" data-split-values="true"></span>
+                  <span class="CoveoFieldValue" data-field="@abilities" data-split-values="true">Abilities: </span>
+                  <span class="CoveoFieldValue" data-field="@support_skill" data-split-values="true">Support Skill: </span>
                 </div>
               </div>
               <div class="coveo-result-row" style="margin-top: 10px">
                 <div class="coveo-result-cell">
                   <span class="CoveoFieldValue" data-field="@generation"></span>
+                  <span class="CoveoFieldValue" data-field="@attribute">Attribute: </span>
                 </div>
               </div>
               <div class="coveo-result-cell" style="margin-top:10px">
