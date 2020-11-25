@@ -15,7 +15,7 @@ body {
 }
 
 .CoveoSearchInterface .coveo-main-section {
-  max-width: 90%;
+  max-width: 95%;
 }
 .coveo-facet-column {
   max-width: 20%;
@@ -53,6 +53,7 @@ h1.title {
 
 .coveo-results-header * {
   color: white;
+  box-shadow: 0 -1px 0 0 white inset;
 }
 
 .CoveoSearchButton {
@@ -71,6 +72,9 @@ h1.title {
 }
 .coveo-facet-column > * span {
   color: white;
+}
+.coveo-facet-column > * .coveo-checkbox-span-label {
+  color: var(--pokemon-blue-darker);
 }
 .coveo-facet-column > * span.coveo-combobox-input-icon {
   color: var(--pokemon-blue);
@@ -96,6 +100,10 @@ h1.title {
 
 .CoveoResult {
   background-color: white;
+}
+.coveo-card-layout.CoveoResult {
+  border-radius: 2px;
+  border: 2px solid var(--pokemon-blue-darker);
 }
 
 .CoveoCardActionBar {
