@@ -97,13 +97,27 @@ h1.title {
 .coveo-slider-caption {
   color: white;
 }
+.coveo-facet-search-results {
+  background-color: var(--pokemon-blue);
+}
+.coveo-facet-search-current-result, .coveo-facet-value.coveo-with-hover:hover, .coveo-facet-value.coveo-with-hover.coveo-focused {
+  background-color: var(--pokemon-blue-darker);
+}
 
 .CoveoResult {
   background-color: white;
+  box-shadow: 0px 0px 4px black ;
 }
 .coveo-card-layout.CoveoResult {
   border-radius: 2px;
   border: 2px solid var(--pokemon-blue-darker);
+}
+.CoveoFieldValue#result-name {
+  font-size: 30px;
+}
+.CoveoFieldValue.entity-name {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .CoveoCardActionBar {
